@@ -3,13 +3,22 @@ project(Echo)
 
 include(FetchContent)
 
+set(CLAY_INCLUDE_ALL_EXAMPLES OFF)
+
 FetchContent_Declare(
 	raylib
 	GIT_REPOSITORY https://github.com/raysan5/raylib
 	GIT_TAG        5.5
 )
+FetchContent_Declare(
+	clay
+	GIT_REPOSITORY https://github.com/ketexon/clay
+	GIT_TAG        main
+)
+
 
 FetchContent_MakeAvailable(raylib)
+FetchContent_MakeAvailable(clay)
 
 add_executable(
 	Echo
@@ -19,12 +28,12 @@ add_executable(
 target_include_directories(
 	Echo
 	PRIVATE
-	${CMAKE_SOURCE_DIR}/ext/layout/
 )
 
 target_link_libraries(
 	Echo
 	raylib
+	clay
 )
 
 set_target_properties(
