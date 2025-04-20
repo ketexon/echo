@@ -14,7 +14,8 @@ FetchContent_MakeAvailable(raylib)
 
 add_executable(
 	Echo
-	src/main.cpp
+	src/main.hpp src/main.cpp
+	src/node.hpp src/node.cpp
 )
 
 target_include_directories(
